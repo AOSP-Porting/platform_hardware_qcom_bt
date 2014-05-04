@@ -59,8 +59,7 @@ endif #WIFI_BT_STATUS_SYNC
 
 LOCAL_SHARED_LIBRARIES := \
         libcutils \
-        liblog \
-        libbtnv
+        liblog
 
 LOCAL_MODULE := libbt-vendor
 LOCAL_CLANG := false
@@ -70,7 +69,10 @@ LOCAL_MODULE_OWNER := qcom
 
 LOCAL_VENDOR_MODULE := true
 
+ifneq ($(QCPATH),)
 LOCAL_CFLAGS += -DBT_NV_SUPPORT
+LOCAL_SHARED_LIBRARIES += libbtnv
+endif
 
 ifneq ($(BOARD_ANT_WIRELESS_DEVICE),)
 LOCAL_CFLAGS += -DENABLE_ANT
