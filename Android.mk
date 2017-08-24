@@ -5,6 +5,8 @@ ifneq ($(BOARD_IS_AUTOMOTIVE),true)
     include $(call all-named-subdir-makefiles,msm8960)
   else ifneq ($(filter msm8994,$(TARGET_BOARD_PLATFORM)),)
     include $(call all-named-subdir-makefiles,msm8992)
+  else ifneq ($(filter msm8953,$(TARGET_BOARD_PLATFORM)),)
+    include $(call all-named-subdir-makefiles,msm8996)
   else ifneq ($(wildcard $(LOCAL_PATH)/$(TARGET_BOARD_PLATFORM)),)
     include $(call all-named-subdir-makefiles,$(TARGET_BOARD_PLATFORM))
   endif
